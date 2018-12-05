@@ -1,0 +1,17 @@
+inherit_from: .rubocop_todo.yml
+
+Metrics/LineLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'playground/**'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'playground/**'
+
+Style/WordArray:
+  Exclude:
+    - 'playground/**'
