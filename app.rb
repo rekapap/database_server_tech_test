@@ -7,7 +7,8 @@ require_relative 'lib/params_validator'
 class DatabaseServer < Sinatra::Base
   set :port, 4000
 
-  def initialize(paramsvalidator_class = ParamsValidator, wrapper_class = HashWrapper)
+  def initialize(paramsvalidator_class = ParamsValidator,
+                 wrapper_class = HashWrapper)
     super()
     @params_validator = paramsvalidator_class
     @wrapper = wrapper_class.new
