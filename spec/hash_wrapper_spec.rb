@@ -16,4 +16,12 @@ describe HashWrapper do
       expect(subject.data['apple']).to eq('golden')
     end
   end
+
+  describe '#get' do
+    let(:params) { { 'apple' => 'golden' } }
+    it 'set a pair into the data' do
+      subject.set(params)
+      expect(subject.get('apple')).to eq('golden')
+    end
+  end
 end

@@ -13,4 +13,8 @@ class HashWrapper
       @data[key] = value
     end
   end
+
+  def get(key)
+    @data[key]
+  end
 end
