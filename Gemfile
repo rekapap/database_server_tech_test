@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-  gem 'pg'
-  gem 'puma'
-  gem 'rake'
-  gem 'sinatra'
+gem 'pg'
+gem 'puma'
+gem 'rake'
+gem 'sinatra'
 
 group :test do
   gem 'capybara'
