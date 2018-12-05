@@ -27,8 +27,11 @@ class DatabaseServer < Sinatra::Base
   end
 
   get '/get' do
-    result = @wrapper.get(result['key'])
-    result.to_s
+    result = @params_validator.validate_key(params)
+    return 'Invalid parameters' unless result
+
+    value = @wrapper.get(result)
+    value.to_s
   end
 
   run! if app_file == $PROGRAM_NAME

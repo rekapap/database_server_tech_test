@@ -27,8 +27,22 @@ describe ParamsValidator do
 
     context 'valid params' do
       it 'returns a hash if parameters are valid' do
-        empty_params = { 'key' => 'value' }
-        expect(described_class.validate(empty_params)).to be_a(Hash)
+        params = { 'key' => 'value' }
+        expect(described_class.validate(params)).to be_a(Hash)
+      end
+    end
+  end
+  describe '.validate_key' do
+    context 'invalid key' do
+      it 'returns nil if key is an empty string' do
+        params = { 'key' => '' }
+        expect(described_class.validate_key(params)).to eq(nil)
+      end
+    end
+    context 'valid key' do
+      it 'returns the value string if valid' do
+        params = { 'key' => 'apple' }
+        expect(described_class.validate_key(params)).to eq('apple')
       end
     end
   end

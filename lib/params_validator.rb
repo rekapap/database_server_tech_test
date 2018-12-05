@@ -12,6 +12,12 @@ class ParamsValidator
     params
   end
 
+  def self.validate_key(params)
+    return if params['key'] == ''
+
+    params['key']
+  end
+
   class << self
     private
 
