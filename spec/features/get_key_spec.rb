@@ -13,4 +13,11 @@ feature 'Get key' do
     visit("/get?key=")
     expect(page).to have_content "Invalid parameters"
   end
+  scenario 'invlaid key no key parameter' do
+    key = 'apple'
+    value = 'green'
+    visit("/set?#{key}=#{value}")
+    visit("/get")
+    expect(page).to have_content "Invalid parameters"
+  end
 end
