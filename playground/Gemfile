@@ -1,0 +1,13 @@
+source 'https://rubygems.org'
+
+  gem 'pg'
+  gem 'puma'
+
+group :test do
+  gem 'capybara'
+  gem 'flog'
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
+end

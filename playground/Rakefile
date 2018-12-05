@@ -1,0 +1,18 @@
+require 'pg'
+
+task :test_database_setup do
+  connection = PG.connect(dbname: 'db_server_test')
+  connection.exec("TRUNCATE data;")
+end
+
+task :setup do
+  ['db_server_test', 'db_server'].each do |database|
+    connection = PG.connect
+    connection.exec("CREATE DATABASE #{ database };")
+    connection = PG.connect(dbname: database)
+    connection.exec("CREATE TABLE data(
+      key VARCHAR(40) PRIMARY KEY,
+      value VARCHAR(240)
+   );")
+  end
+end
