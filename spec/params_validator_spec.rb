@@ -8,11 +8,23 @@ describe ParamsValidator do
         expect(described_class.validate(empty_params)).to eq(nil)
       end
 
-      it 'returns nil if parameters are invalid' do
-        invalid_params = {'invalid' => nil }
+      it 'returns nil if parameters are all invalid' do
+        invalid_params = { 'invalid' => nil }
         expect(described_class.validate(invalid_params)).to eq(nil)
       end
 
+      it 'returns only valid pairs' do
+        mixed_params = { 'invalid' => nil, 'valid' => 'value' }
+        result = described_class.validate(mixed_params)
+        expect(result.keys.size).to eq(1)
+      end
+    end
+
+    context 'valid params' do
+      it 'returns a hash if parameters are valid' do
+        empty_params = { 'key' => 'value' }
+        expect(described_class.validate(empty_params)).to be_a(Hash)
+      end
     end
   end
 end
