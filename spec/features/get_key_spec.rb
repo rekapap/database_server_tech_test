@@ -6,6 +6,7 @@ feature 'Get key' do
     visit("/get?key=#{key}")
     expect(page).to have_content "green"
   end
+
   scenario 'invlaid key' do
     key = 'apple'
     value = 'green'
@@ -13,6 +14,7 @@ feature 'Get key' do
     visit("/get?key=")
     expect(page).to have_content "Invalid parameters"
   end
+
   scenario 'invlaid key no key parameter' do
     key = 'apple'
     value = 'green'
