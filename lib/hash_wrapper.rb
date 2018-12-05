@@ -8,8 +8,8 @@ class HashWrapper
     @data.dup
   end
 
-  def set(params)
-    params.each do |key, value|
+  def set(hash)
+    hash.each do |key, value|
       @data[key] = value
     end
   end
