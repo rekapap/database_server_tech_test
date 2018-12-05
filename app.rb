@@ -26,5 +26,10 @@ class DatabaseServer < Sinatra::Base
     "I wrote '#{result}' into the datastore"
   end
 
+  get '/get' do
+    result = @wrapper.get(result['key'])
+    result.to_s
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
