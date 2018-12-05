@@ -7,6 +7,12 @@ describe ParamsValidator do
         empty_params = {}
         expect(described_class.validate(empty_params)).to eq(nil)
       end
+
+      it 'returns nil if parameters are invalid' do
+        invalid_params = {'invalid' => nil }
+        expect(described_class.validate(invalid_params)).to eq(nil)
+      end
+
     end
   end
 end
