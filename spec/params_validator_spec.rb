@@ -13,6 +13,11 @@ describe ParamsValidator do
         expect(described_class.validate(invalid_params)).to eq(nil)
       end
 
+      it 'returns nil if values are empty strings' do
+        invalid_params = { 'invalid' => '' }
+        expect(described_class.validate(invalid_params)).to eq(nil)
+      end
+
       it 'returns only valid pairs' do
         mixed_params = { 'invalid' => nil, 'valid' => 'value' }
         result = described_class.validate(mixed_params)

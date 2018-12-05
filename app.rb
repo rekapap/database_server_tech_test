@@ -18,7 +18,6 @@ class DatabaseServer < Sinatra::Base
   end
 
   get '/set' do
-    p params
     result = @params_validator.validate(params)
     return 'Invalid parameters' unless result
 

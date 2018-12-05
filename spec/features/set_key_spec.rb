@@ -10,4 +10,9 @@ feature 'Set key' do
     visit("/set?#{key}")
     expect(page).to have_content 'Invalid parameters'
   end
+  scenario 'raise error if params value is an empty string' do
+    key = 'apple'
+    visit("/set?#{key}=")
+    expect(page).to have_content 'Invalid parameters'
+  end
 end
